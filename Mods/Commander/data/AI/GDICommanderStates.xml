@@ -164,10 +164,10 @@
         <Budget>
             <AccountShare Account="INVESTMENT" Percent="0%"/>
             <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
-            <AccountShare Account="PRODUCTION" Percent="90%"/>
+            <AccountShare Account="PRODUCTION" Percent="80%"/>
             <AccountShare Account="DEFENSE" Percent="0%"/>
             <AccountShare Account="TECHNOLOGY" Percent="0%"/>
-            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="20%"/>
         </Budget>
     </AIBudgetStateDefinition>
 
@@ -180,10 +180,10 @@
         <Budget>
             <AccountShare Account="INVESTMENT" Percent="0%"/>
             <AccountShare Account="SPECIAL_OPERATIONS" Percent="10%"/>
-            <AccountShare Account="PRODUCTION" Percent="80%"/>
+            <AccountShare Account="PRODUCTION" Percent="70%"/>
             <AccountShare Account="DEFENSE" Percent="0%"/>
             <AccountShare Account="TECHNOLOGY" Percent="0%"/>
-            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="20%"/>
         </Budget>
     </AIBudgetStateDefinition>
 
@@ -196,10 +196,10 @@
         <Budget>
             <AccountShare Account="INVESTMENT" Percent="0%"/>
             <AccountShare Account="SPECIAL_OPERATIONS" Percent="10%"/>
-            <AccountShare Account="PRODUCTION" Percent="80%"/>
+            <AccountShare Account="PRODUCTION" Percent="70%"/>
             <AccountShare Account="DEFENSE" Percent="0%"/>
             <AccountShare Account="TECHNOLOGY" Percent="0%"/>
-            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="20%"/>
         </Budget>
     </AIBudgetStateDefinition>
 
@@ -212,9 +212,9 @@
             <IntervalHeuristic IntervalTime="7s" ActiveTime="3s"/>
         </Heuristic>
         <Budget>
-            <AccountShare Account="INVESTMENT" Percent="40%"/>
+            <AccountShare Account="INVESTMENT" Percent="90%"/>
             <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
-            <AccountShare Account="PRODUCTION" Percent="50%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
             <AccountShare Account="DEFENSE" Percent="0%"/>
             <AccountShare Account="TECHNOLOGY" Percent="0%"/>
             <AccountShare Account="SLUSH_FUND" Percent="10%"/>
@@ -228,11 +228,11 @@
             <FullInvestmentHeuristic Threshold="500"/>
         </Heuristic>
         <Budget>
-            <AccountShare Account="INVESTMENT" Percent="80%"/>
+            <AccountShare Account="INVESTMENT" Percent="90%"/>
             <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
             <AccountShare Account="PRODUCTION" Percent="0%"/>
             <AccountShare Account="DEFENSE" Percent="0%"/>
-            <AccountShare Account="TECHNOLOGY" Percent="10%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
             <AccountShare Account="SLUSH_FUND" Percent="10%"/>
         </Budget>
     </AIBudgetStateDefinition>
