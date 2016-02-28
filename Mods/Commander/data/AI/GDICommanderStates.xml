@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+    <Tags></Tags>
+    <Includes></Includes>
+
+    <!-- Defense -->
+    <AIStrategicStateDefinition id="GDICommanderReactiveDefense" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <ConstantHeuristic Weight="1.0"/>
+        </Heuristic>
+        <Tactic Tactic="ReactiveDefense" TargetType="Targetless">
+            <TeamTemplate MinUnits="1" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="" AlwaysRelease="true" AlwaysRecruit="true"/>
+        </Tactic>
+    </AIStrategicStateDefinition>
+
+    <!-- Direct assault -->
+    <AIStrategicStateDefinition id="GDICommanderOverrunEarly" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <PathToTargetHeuristic PathExists="true"/>
+            <OverrunEarlyHeuristic>
+                <MiddleGameHeuristic/>
+                <LateGameHeuristic/>
+            </OverrunEarlyHeuristic>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic" TargetType="PrimaryTarget"/>
+        <Tactic Tactic="SimpleAttack" TargetType="PrimaryTarget">
+            <TeamTemplate MinUnits="16" MaxUnits="16" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="" AlwaysRelease="false" AlwaysRecruit="false"/>
+        </Tactic>
+        <UnitModifierByName UnitName="GDIPredator" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIMissileSoldierSquad" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIAPC" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+    </AIStrategicStateDefinition>
+    <AIStrategicStateDefinition id="GDICommanderOverrunMiddle" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <PathToTargetHeuristic PathExists="true"/>
+            <OverrunMiddleHeuristic>
+                <MiddleGameHeuristic/>
+                <LateGameHeuristic/>
+            </OverrunMiddleHeuristic>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic" TargetType="PrimaryTarget"/>
+        <Tactic Tactic="SimpleAttack" TargetType="PrimaryTarget">
+            <TeamTemplate MinUnits="24" MaxUnits="24" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="" AlwaysRelease="false" AlwaysRecruit="false"/>
+        </Tactic>
+        <UnitModifierByName UnitName="GDIPredator" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIMissileSoldierSquad" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIAPC" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+    </AIStrategicStateDefinition>
+    <AIStrategicStateDefinition id="GDICommanderOverrunLate" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <PathToTargetHeuristic PathExists="true"/>
+            <OverrunLateHeuristic>
+                <LateGameHeuristic/>
+            </OverrunLateHeuristic>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic" TargetType="PrimaryTarget"/>
+        <Tactic Tactic="SimpleAttack" TargetType="PrimaryTarget">
+            <TeamTemplate MinUnits="32" MaxUnits="32" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="" AlwaysRelease="false" AlwaysRecruit="false"/>
+        </Tactic>
+        <UnitModifierByName UnitName="GDIMammoth" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIZoneTrooper" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIAPC" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+    </AIStrategicStateDefinition>
+
+    <!-- Counter Attack -->
+    <AIStrategicStateDefinition id="GDICommanderCounterattack" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <PathToTargetHeuristic PathExists="true"/>
+            <CounterattackHeuristic Threshold="3.0"/>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic" TargetType="Counterattack"/>
+        <Tactic Tactic="SimpleAttack" TargetType="Counterattack">
+            <TeamTemplate MinUnits="24" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT" AlwaysRelease="false" AlwaysRecruit="false"/>
+        </Tactic>
+    </AIStrategicStateDefinition>
+    <AIStrategicStateDefinition id="GDICommanderFinalAttack" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <PathToTargetHeuristic PathExists="true"/>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic" TargetType="Counterattack"/>
+        <Tactic Tactic="SimpleAttack" TargetType="Counterattack">
+            <TeamTemplate MinUnits="50" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="BOMBER_AIRCRAFT" AlwaysRelease="false" AlwaysRecruit="false"/>
+        </Tactic>
+    </AIStrategicStateDefinition>
+
+    <!-- Air -->
+    <AIStrategicStateDefinition id="GDICommanderAirSupremacy" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <ConstantHeuristic Weight="1.0"/>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ResourceSqueezeHeuristic"/>
+        <Tactic Tactic="SimpleAttack" TargetType="Structure"/>
+        <Tactic Tactic="FarmKill" TargetType="Targetless"/>
+        <UnitModifierByName UnitName="GDIOrca" UnitPreferenceOffensiveModifier="200%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIFireHawk" UnitPreferenceOffensiveModifier="400%" UnitPreferenceDefensiveModifier="100%"/>
+    </AIStrategicStateDefinition>
+    <AIStrategicStateDefinition id="GDICommanderDefensiveBombingRuns" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <LateGameHeuristic/>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" TargetType="BombingAirstrike"/>
+        <Tactic Tactic="SimpleAttack" TargetType="BombingAirstrike">
+            <TeamTemplate MinUnits="4" IncludeKindOf="CAN_ATTACK AIRCRAFT BOMBER_AIRCRAFT" ExcludeKindOf="" AlwaysRelease="false" AlwaysRecruit="false">
+                <CreateUnits UnitName="GDIFirehawk"/>
+                <CreateUnits UnitName="GDIFirehawk"/>
+                <CreateUnits UnitName="GDIFirehawk"/>
+                <CreateUnits UnitName="GDIFirehawk"/>
+            </TeamTemplate>
+        </Tactic>
+    </AIStrategicStateDefinition>
+
+    <!-- Siege -->
+    <AIStrategicStateDefinition id="GDICommanderSiege" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <BaseCrackHeuristic>
+                <LateGameHeuristic/>
+                <PenetrabilityHeuristic/>
+            </BaseCrackHeuristic>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="ProductionHaltHeuristic"/>
+        <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+        <Tactic Tactic="SimpleSiege" TargetType="Structure">
+            <TeamTemplate MinUnits="7" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="" AutoReinforce="false" AlwaysRecruit="false"/>
+        </Tactic>
+        <UnitModifierByName UnitName="GDIMammoth" UnitPreferenceOffensiveModifier="150%" UnitPreferenceDefensiveModifier="100%"/>
+        <UnitModifierByName UnitName="GDIJuggernaut" UnitPreferenceOffensiveModifier="150%" UnitPreferenceDefensiveModifier="100%"/>
+    </AIStrategicStateDefinition>
+
+    <!-- Expansion -->
+    <AIStrategicStateDefinition id="GDICommanderExpansion" UnitUpgradeMultiplier="0.0">
+        <Heuristic>
+            <IntervalHeuristic IntervalTime="60s" ActiveTime="30s"/>
+        </Heuristic>
+        <TargetHeuristic TargetHeuristic="BaseDefenseHeuristic"/>
+        <TargetHeuristic TargetHeuristic="EnemyStructureHeuristic"/>
+        <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+        <TargetHeuristic TargetHeuristic="NeutralTechBuildingHeuristic"/>
+        <Tactic Tactic="SimpleExpansion" TargetType="Expansion">
+            <TeamTemplate MinUnits="1" MaxUnits="5" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT" AlwaysRelease="false" AlwaysRecruit="false">
+                <CreateUnits UnitName="GDISurveyor"/>
+            </TeamTemplate>
+        </Tactic>
+    </AIStrategicStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderOpeningMoveBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.1"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="100%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderEarlyGameBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.3"/>
+            <OpeningMoveHeuristic Complete="true"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="90%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderMidGameBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.5"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <MiddleGameHeuristic/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="10%"/>
+            <AccountShare Account="PRODUCTION" Percent="80%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderLateGameBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.7"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <LateGameHeuristic/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="10%"/>
+            <AccountShare Account="PRODUCTION" Percent="80%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderFullInvestmentBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.9"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <HarvesterCapHeuristic MaxHarvesters="6"/>
+            <IntervalHeuristic IntervalTime="85s" ActiveTime="20s"/>
+            <IntervalHeuristic IntervalTime="7s" ActiveTime="3s"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="40%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="50%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="0%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderInvestmentFinishBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.95"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <FullInvestmentHeuristic Threshold="500"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="80%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="10%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderTechByTimeBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.8"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <TimerHeuristic StartTime="300s" EndTime="-1s"/>
+            <IntervalHeuristic IntervalTime="130s" ActiveTime="20s"/>
+            <IntervalHeuristic IntervalTime="7s" ActiveTime="3s"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="90%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderTechByMoneyBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.81"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <MoneyHeuristic Money="10000" Above="true"/>
+            <IntervalHeuristic IntervalTime="70s" ActiveTime="20s"/>
+            <IntervalHeuristic IntervalTime="7s" ActiveTime="3s"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="90%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+
+    <AIBudgetStateDefinition id="CommanderTechFinishBudget">
+        <Heuristic>
+            <ConstantHeuristic Weight="0.85"/>
+            <OpeningMoveHeuristic Complete="true"/>
+            <FullTechHeuristic Threshold="500"/>
+        </Heuristic>
+        <Budget>
+            <AccountShare Account="INVESTMENT" Percent="0%"/>
+            <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+            <AccountShare Account="PRODUCTION" Percent="0%"/>
+            <AccountShare Account="DEFENSE" Percent="0%"/>
+            <AccountShare Account="TECHNOLOGY" Percent="90%"/>
+            <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+        </Budget>
+    </AIBudgetStateDefinition>
+</AssetDeclaration>

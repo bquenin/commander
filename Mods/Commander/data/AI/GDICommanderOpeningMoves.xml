@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Tags></Tags>
+    <Includes></Includes>
+
+    <SkirmishOpeningMove id="GDICommanderCrane" Side="GDI">
+        <Order Build="GDICrane"/>
+        <Order Build="GDIRefinery"/>
+        <Order Build="GDIRefinery"/>
+        <Order Build="GDIRefinery"/>
+        <Order Build="GDIPowerPlant"/>
+        <Order Build="GDIBarracks"/>
+        <Order Build="GDIWarfactory"/>
+        <Order Time="58s" Account="PRODUCTION" Deposit="999999"/>
+        <Order Build="GDIPowerPlant"/>
+        <Order Build="GDIWarfactory"/>
+        <Order Build="GDIBarracks"/>
+        <Order Build="GDIRefinery"/>
+        <Order Time="60s"/>
+    </SkirmishOpeningMove>
+</AssetDeclaration>
