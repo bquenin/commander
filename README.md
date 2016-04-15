@@ -6,7 +6,7 @@ git: https://git-scm.com/download/win
 
 # Installation
 ```bash
-git clone https://github.com/bquenin/commander.git
+git clone https://github.com/tsug/commander.git
 cd commander
 BuildMod.bat Commander
 ```
