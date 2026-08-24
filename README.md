@@ -48,7 +48,7 @@ Mods/Commander/
     Strings/english.str                                    the mod's UI strings
 BuildModKW.ps1                                             build + install
 UninstallModKW.ps1                                         remove the mod from the game
-tools/mine_openers.py                                      extract build orders from .KWReplay files
+Tools/mine_openers.py                                      extract build orders from .KWReplay files
 docs/                                                      modding notes, stock-AI reference, design notes, mined openers
 Tools/WrathEd/                                             vendored compiler (GPL v3)
 Tools/KWReplayAutoSaver/                                   vendored replay parser (MIT)

@@ -32,7 +32,7 @@ by 2× income and is not a reference for anything.
 
 ### Openers — mined from 390 GDI 1v1 games
 
-`tools/mine_openers.py` parsed the command streams of ~1,100 public
+`Tools/mine_openers.py` parsed the command streams of ~1,100 public
 GameReplays 1.02 ladder replays (Tournament Rift / Decision / Dustbowl
 mostly, top players including the #1 ranked GDI player with 114 games).
 Full report: [`mined-openers-gdi.md`](mined-openers-gdi.md). The picture is

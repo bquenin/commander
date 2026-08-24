@@ -6,7 +6,7 @@
 
 They parse `.KWReplay` files: the header (map, players, factions) and the
 command stream (queue / place / hold / sell / upgrade / power-down orders with
-their time codes and template names). Used by `tools/mine_openers.py` to
+their time codes and template names). Used by `Tools/mine_openers.py` to
 extract build orders from public replays without running the game.
 
 The GUI/auto-saver parts of the upstream project are not included.
