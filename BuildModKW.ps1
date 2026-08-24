@@ -25,7 +25,7 @@
     and the KW engine rejects those with "Type hash mismatch for type ...".
 
 .PARAMETER ModName
-    Folder name under Mods\.  Default: KaneCommander
+    Folder name under Mods\.  Default: Commander
 
 .PARAMETER ModVersion
     Version string used in the .big / .skudef file names.  Default: 1.0
@@ -35,11 +35,11 @@
 
 .EXAMPLE
     .\BuildModKW.ps1
-    .\BuildModKW.ps1 -ModName KaneCommander -ModVersion 1.0
+    .\BuildModKW.ps1 -ModName Commander -ModVersion 1.0
 #>
 [CmdletBinding()]
 param(
-    [string]$ModName    = 'KaneCommander',
+    [string]$ModName    = 'Commander',
     [string]$ModVersion = '1.0',
     [string]$GamePath
 )
@@ -284,4 +284,4 @@ Write-Host 'Done.' -ForegroundColor Green
 Get-ChildItem $installDir | ForEach-Object { '  {0,12:N0}  {1}' -f $_.Length, $_.Name }
 Write-Host ''
 Write-Host 'Launch the game, pick the mod in the launcher''s mod list, then'
-Write-Host 'Skirmish -> set an opponent''s AI personality to "Kane Commander".'
+Write-Host 'Skirmish -> set an opponent''s AI personality to "Commander".'

@@ -1,0 +1,599 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - banner [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e7]:
+              - text: Hello guest
+              - link "register" [ref=e8] [cursor=pointer]:
+                - /url: /members/register
+              - text: or
+              - link "sign in" [ref=e9] [cursor=pointer]:
+                - /url: /members/login
+            - generic [ref=e11]:
+              - textbox "Search" [ref=e12]
+              - button "Search ModDB" [ref=e13] [cursor=pointer]: Search
+          - link "ModDB Home" [ref=e14] [cursor=pointer]:
+            - /url: /
+          - list [ref=e15]:
+            - listitem [ref=e16]:
+              - link "HOME" [ref=e17] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e18]:
+              - link "Today" [ref=e19] [cursor=pointer]:
+                - /url: /today
+            - listitem [ref=e20]:
+              - link "Week" [ref=e21] [cursor=pointer]:
+                - /url: /week
+            - listitem [ref=e22]:
+              - link "Month" [ref=e23] [cursor=pointer]:
+                - /url: /month
+            - listitem [ref=e24]:
+              - link "Year" [ref=e25] [cursor=pointer]:
+                - /url: /year
+        - generic [ref=e26]:
+          - navigation:
+            - list:
+              - listitem [ref=e27]:
+                - link "games" [ref=e28] [cursor=pointer]:
+                  - /url: /games
+              - listitem [ref=e29]:
+                - link "mods" [ref=e30] [cursor=pointer]:
+                  - /url: /mods
+              - listitem [ref=e31]:
+                - link "addons" [ref=e32] [cursor=pointer]:
+                  - /url: /addons
+              - listitem [ref=e33]:
+                - link "files" [ref=e34] [cursor=pointer]:
+                  - /url: /downloads
+              - listitem [ref=e35]:
+                - link "RTX Remix" [ref=e36] [cursor=pointer]:
+                  - /url: /rtx
+              - listitem [ref=e37]:
+                - link "videos" [ref=e38] [cursor=pointer]:
+                  - /url: /videos
+              - listitem [ref=e39]:
+                - link "articles" [ref=e40] [cursor=pointer]:
+                  - /url: /articles
+              - listitem [ref=e41]:
+                - link "engines" [ref=e42] [cursor=pointer]:
+                  - /url: /engines
+              - listitem [ref=e43]:
+                - link "developers" [ref=e44] [cursor=pointer]:
+                  - /url: /company
+              - listitem [ref=e45]:
+                - link "groups" [ref=e46] [cursor=pointer]:
+                  - /url: /groups
+              - listitem [ref=e47]:
+                - link "forums" [ref=e48] [cursor=pointer]:
+                  - /url: /forum
+              - listitem [ref=e49]:
+                - link "jobs" [ref=e50] [cursor=pointer]:
+                  - /url: /jobs
+      - iframe [ref=e55]:
+        
+      - generic:
+        - generic [ref=e56]:
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - heading [level=2] [ref=e60]:
+                - link "Commander AI" [ref=e61] [cursor=pointer]:
+                  - /url: /mods/commander
+              - heading [level=3] [ref=e62]:
+                - 'link "C&C3: Tiberium Wars mod" [ref=e63] [cursor=pointer]':
+                  - /url: /games/cc-tiberium-wars
+                - text: "|"
+                - time [ref=e64]: Released 2016
+            - navigation [ref=e65]:
+              - list [ref=e66]:
+                - listitem [ref=e67]:
+                  - link "summary" [ref=e68] [cursor=pointer]:
+                    - /url: /mods/commander
+                - listitem [ref=e69]:
+                  - link "articles" [ref=e70] [cursor=pointer]:
+                    - /url: /mods/commander/articles
+                - listitem [ref=e71]:
+                  - link "reviews" [ref=e72] [cursor=pointer]:
+                    - /url: /mods/commander/reviews
+                - listitem [ref=e73]:
+                  - link "files" [ref=e74] [cursor=pointer]:
+                    - /url: /mods/commander/downloads
+                - listitem [ref=e75]:
+                  - link "videos" [ref=e76] [cursor=pointer]:
+                    - /url: /mods/commander/videos
+                - listitem [ref=e77]:
+                  - link "images" [ref=e78] [cursor=pointer]:
+                    - /url: /mods/commander/images
+          - paragraph [ref=e83]: Commander is a simple AI mod bringing a harder to beat AI. It's currently only available for GDI.
+          - generic [ref=e84]:
+            - list:
+              - listitem [ref=e85]:
+                - link "Previous Media" [ref=e86]:
+                  - /url: "#"
+              - listitem [ref=e87]:
+                - link [ref=e88] [cursor=pointer]:
+                  - /url: /mods/commander/images/image-6#imagebox
+                  - img "View media" [ref=e89]
+              - listitem [ref=e90]:
+                - link [ref=e91] [cursor=pointer]:
+                  - /url: /mods/commander/images/image-5#imagebox
+                  - img "View media" [ref=e92]
+              - listitem [ref=e93]:
+                - link [ref=e94] [cursor=pointer]:
+                  - /url: /mods/commander/images/image-4#imagebox
+                  - img "View media" [ref=e95]
+              - listitem [ref=e96]:
+                - link [ref=e97] [cursor=pointer]:
+                  - /url: /mods/commander/images/image-3#imagebox
+                  - img "View media" [ref=e98]
+              - listitem [ref=e99]:
+                - link [ref=e100] [cursor=pointer]:
+                  - /url: /mods/commander/images/image-2#imagebox
+                  - img "View media" [ref=e101]
+              - listitem [ref=e102]:
+                - link [ref=e103] [cursor=pointer]:
+                  - /url: /mods/commander/images/index-1#imagebox
+                  - img "View media" [ref=e104]
+              - listitem [ref=e105]:
+                - link "Next Media" [ref=e106]:
+                  - /url: "#"
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: Embed Buttons
+            - generic [ref=e112]:
+              - paragraph [ref=e114]:
+                - text: To promote Commander AI and
+                - link "grow its popularity" [ref=e115] [cursor=pointer]:
+                  - /url: /mods/commander/stats
+                - text: (
+                - link "top mods" [ref=e116] [cursor=pointer]:
+                  - /url: /mods/top
+                - text: ), use the embed code provided on your homepage, blog, forums and elsewhere you desire. Or try
+                - link "our widget" [ref=e117] [cursor=pointer]:
+                  - /url: "#"
+                - text: .
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - heading [level=5] [ref=e120]:
+                    - textbox [ref=e121]: <a href="https://www.moddb.com/mods/commander" title="View Commander AI on ModDB" target="_blank"><img src="https://button.moddb.com/popularity/medium/mods/29319.png" alt="Commander AI" /></a>
+                  - link [ref=e123] [cursor=pointer]:
+                    - /url: /mods/commander
+                    - img "Commander AI" [ref=e124]
+                - generic [ref=e125]:
+                  - heading [level=5] [ref=e126]:
+                    - textbox [ref=e127]: <a href="https://www.moddb.com/mods/commander" title="View Commander AI on ModDB" target="_blank"><img src="https://button.moddb.com/rating/medium/mods/29319.png" alt="Commander AI" /></a>
+                  - link [ref=e129] [cursor=pointer]:
+                    - /url: /mods/commander
+                    - img "Commander AI" [ref=e130]
+                - generic [ref=e131]:
+                  - heading [level=5] [ref=e132]:
+                    - textbox [ref=e133]: <a href="https://www.moddb.com/mods/commander" title="View Commander AI on ModDB" target="_blank"><img src="https://media.moddb.com/images/global/moddb.png" alt="Commander AI" /></a>
+                  - link [ref=e135] [cursor=pointer]:
+                    - /url: /mods/commander
+                    - img "Commander AI" [ref=e136]
+          - generic [ref=e137]:
+            - generic [ref=e139]:
+              - link "Post article" [ref=e141] [cursor=pointer]:
+                - /url: /mods/commander/articles/add/#articlesform
+              - text: Articles
+            - paragraph [ref=e145]:
+              - text: No articles were found matching the criteria specified. We suggest you try the
+              - link "article list" [ref=e146] [cursor=pointer]:
+                - /url: /mods/commander/articles
+              - text: with no filter applied, to browse all available.
+              - link "Post article" [ref=e147] [cursor=pointer]:
+                - /url: /mods/commander/articles/add
+              - text: and help us achieve our mission of showcasing the best content from all developers.
+              - link "Join now" [ref=e148] [cursor=pointer]:
+                - /url: /members/register
+              - text: to share your own content, we welcome creators and consumers alike and look forward to your comments.
+          - generic [ref=e149]:
+            - generic [ref=e151]:
+              - generic [ref=e152]:
+                - link "Add file" [ref=e153] [cursor=pointer]:
+                  - /url: /mods/commander/downloads/add/#downloadsform
+                - link "RSS" [ref=e154] [cursor=pointer]:
+                  - /url: https://rss.moddb.com/mods/commander/downloads/feed/rss.xml
+              - text: Files
+            - generic [ref=e158]:
+              - generic [ref=e159]:
+                - link [ref=e160] [cursor=pointer]:
+                  - /url: /mods/commander/downloads/commander
+                  - img "Commander" [ref=e161]
+                - generic [ref=e162]:
+                  - heading [level=4] [ref=e163]:
+                    - link "Commander" [ref=e164] [cursor=pointer]:
+                      - /url: /mods/commander/downloads/commander
+                  - time [ref=e166]: Feb 28 2016
+                  - generic [ref=e167]:
+                    - text: Full Version
+                    - link "3 comments" [ref=e168] [cursor=pointer]:
+                      - /url: /mods/commander/downloads/commander
+                  - paragraph [ref=e169]: First (and probably last) release of the Commander AI.
+              - heading [level=4] [ref=e171]:
+                - link "Add file >>" [ref=e172] [cursor=pointer]:
+                  - /url: /mods/commander/downloads/add
+          - generic [ref=e173]:
+            - generic [ref=e175]:
+              - link "Post comment" [ref=e177] [cursor=pointer]:
+                - /url: "#commentform"
+              - text: Comments
+            - generic [ref=e182]:
+              - link [ref=e184] [cursor=pointer]:
+                - /url: /members/tiberium-exposure
+                - img "Tiberium_Exposure" [ref=e185]
+              - generic [ref=e186]:
+                - generic [ref=e187]:
+                  - link "Tiberium_Exposure" [ref=e188] [cursor=pointer]:
+                    - /url: /members/tiberium-exposure
+                  - text: "-"
+                  - link [ref=e189] [cursor=pointer]:
+                    - /url: "#5818266"
+                    - time [ref=e190]: Mar 8 2016
+                  - text: "- 617 comments"
+                - paragraph [ref=e192]: Why would this be the Last release? Sure, few people are paying attention to this mod, but that is only because not too many people that play this game are keen on setting up GDI as an opponent. they tend to spam mammoth tanks and juggernauts very quickly. If this mod was re-calibrated for NOD use, and if you could somehow fix the mid to late-game glitch with the NOD harvesters (A glitch that affects EVERY other mod that is made for Tiberium Wars & Kanes Wrath respectively, regardless of difficulty settings), then I promise you, this mod will gain a lot more support, very quickly. or if you could fully Design a Scrin A.I. that would actually summon the mothership in mid-game before the P.A.C's, and continue to re-summon that mothership when the previous one dies, to make for a greater onslaught of alien forces, I'm sure Modders from other C&C TW mod projects will take interest in this. Please don't give up just because of a rough start.
+                - generic [ref=e193]:
+                  - link "Reply" [ref=e194] [cursor=pointer]:
+                    - /url: "#commentform"
+                  - link "Good karma" [ref=e195] [cursor=pointer]:
+                    - /url: "#karma"
+                  - link "Bad karma" [ref=e196] [cursor=pointer]:
+                    - /url: "#karma"
+                  - generic "Karma" [ref=e197]: +2 votes
+          - generic [ref=e198]:
+            - generic [ref=e199]: Post a comment
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - paragraph
+                - paragraph [ref=e207]:
+                  - link "Click to connect via Steam" [ref=e208] [cursor=pointer]:
+                    - /url: /members/loginext/steam
+                  - link "Click to connect via Google" [ref=e209] [cursor=pointer]:
+                    - /url: /members/loginext/google
+                  - link "Click to connect via Twitter" [ref=e210] [cursor=pointer]:
+                    - /url: /members/loginext/twitter
+                  - link "Click to connect via Facebook" [ref=e211] [cursor=pointer]:
+                    - /url: /members/loginext/facebook
+                  - text: Your comment will be anonymous unless you
+                  - link "join the community" [ref=e212] [cursor=pointer]:
+                    - /url: /members/register
+                  - text: ". Or sign in with your social account:"
+              - generic [ref=e213]:
+                - paragraph
+                - textbox [ref=e214]
+              - button "Save comment" [ref=e216]
+          - generic [ref=e217]:
+            - generic [ref=e218]: You may also like
+            - generic [ref=e223]:
+              - generic [ref=e224]:
+                - link [ref=e225] [cursor=pointer]:
+                  - /url: /mods/project-regenesis
+                  - img "Project ReGenesis" [ref=e226]
+                - generic [ref=e227]:
+                  - heading [level=4] [ref=e228]:
+                    - link "Project ReGenesis" [ref=e229] [cursor=pointer]:
+                      - /url: /mods/project-regenesis
+                  - time [ref=e231]: Jul 23 2024
+                  - generic [ref=e232]:
+                    - time [ref=e233]: Released 2008
+                    - text: Real Time Strategy
+                  - paragraph [ref=e234]: Project Regenesis (Formerly JeepRubiMod) brings C&C:Renegade to an RTS, with small additions here and there. Eventually, all vehicles, buildings, and...
+              - generic [ref=e235]:
+                - link [ref=e236] [cursor=pointer]:
+                  - /url: /mods/halo-evolutions
+                  - 'img "Evolutions: Real Time Strategy Evolved" [ref=e237]'
+                - generic [ref=e238]:
+                  - heading [level=4] [ref=e239]:
+                    - 'link "Evolutions: Real Time Strategy Evolved" [ref=e240] [cursor=pointer]':
+                      - /url: /mods/halo-evolutions
+                  - time [ref=e242]: Aug 13 2025
+                  - generic [ref=e243]:
+                    - time [ref=e244]: TBD
+                    - text: Real Time Strategy
+                  - paragraph [ref=e245]: "Evolutions is a \"Halo Wars\" style mod for Command and Conquer 3: Tiberium Wars that features epic ground and air warfare on a massive scale. Evolutions..."
+              - generic [ref=e246]:
+                - link [ref=e247] [cursor=pointer]:
+                  - /url: /mods/tiberian-sun-rising
+                  - img "Tiberian Sun Rising" [ref=e248]
+                - generic [ref=e249]:
+                  - heading [level=4] [ref=e250]:
+                    - link "Tiberian Sun Rising" [ref=e251] [cursor=pointer]:
+                      - /url: /mods/tiberian-sun-rising
+                  - time [ref=e253]: Dec 30 2025
+                  - generic [ref=e254]:
+                    - time [ref=e255]: TBD
+                    - text: Real Time Strategy
+                  - paragraph [ref=e256]: Tiberian Sun Rising is a total conversion for Command & Conquer 3 Tiberium Wars! Tiberian Sun Rising brings back GDI and Nod battling it out during the...
+              - generic [ref=e257]:
+                - link [ref=e258] [cursor=pointer]:
+                  - /url: /mods/crossfire4
+                  - img "Crossfire" [ref=e259]
+                - generic [ref=e260]:
+                  - heading [level=4] [ref=e261]:
+                    - link "Crossfire" [ref=e262] [cursor=pointer]:
+                      - /url: /mods/crossfire4
+                  - time [ref=e264]: Apr 6 2022
+                  - generic [ref=e265]:
+                    - time [ref=e266]: TBD
+                    - text: Real Time Strategy
+                  - paragraph [ref=e267]: This modification offers an alternative gameplay to Tiberium War. "What if" have another faction join this war there are many new content (units, structure...
+              - generic [ref=e268]:
+                - link [ref=e269] [cursor=pointer]:
+                  - /url: /mods/tiberian-sun
+                  - img "Tiberian Sun Redux" [ref=e270]
+                - generic [ref=e271]:
+                  - heading [level=4] [ref=e272]:
+                    - link "Tiberian Sun Redux" [ref=e273] [cursor=pointer]:
+                      - /url: /mods/tiberian-sun
+                  - time [ref=e275]: Feb 6 2016
+                  - generic [ref=e276]:
+                    - time [ref=e277]: TBD
+                    - text: Real Time Strategy
+                  - paragraph [ref=e278]: The fine individuals who have brought you C&C Tiberian Dawn Redux and Tiberian Sun Redux for CnC Zero Hour, have decided to switch over to CnC 3 to give...
+              - generic [ref=e279]:
+                - link [ref=e280] [cursor=pointer]:
+                  - /url: /mods/dune20xx
+                  - img "DUNE20XX" [ref=e281]
+                - generic [ref=e282]:
+                  - heading [level=4] [ref=e283]:
+                    - link "DUNE20XX" [ref=e284] [cursor=pointer]:
+                      - /url: /mods/dune20xx
+                  - time [ref=e286]: Aug 1 2016
+                  - generic [ref=e287]:
+                    - time [ref=e288]: TBD
+                    - text: Real Time Strategy
+                  - paragraph [ref=e289]: Recreation gamplay of Dune 2000 with some limitions of new engine, and maybe some aditions.
+              - heading [level=4] [ref=e291]:
+                - link "More mods >>" [ref=e292] [cursor=pointer]:
+                  - /url: /mods
+        - generic [ref=e293]:
+          - iframe [ref=e298]:
+            
+          - generic [ref=e299]:
+            - generic [ref=e301]:
+              - generic [ref=e302]:
+                - link "Follow" [ref=e303] [cursor=pointer]:
+                  - /url: "#watch"
+                - link "Report" [ref=e304] [cursor=pointer]:
+                  - /url: /messages/ajax/action/?action=report&sitearea=mods&siteareaid=29319
+              - text: Profile
+            - generic [ref=e308]:
+              - link "868 Download" [ref=e310] [cursor=pointer]:
+                - /url: /mods/commander/downloads
+                - generic [ref=e311]: "868"
+                - text: Download
+              - link "5 Follow" [ref=e313] [cursor=pointer]:
+                - /url: "#watch"
+                - generic [ref=e314]: "5"
+                - text: Follow
+              - generic [ref=e315]:
+                - heading "Icon" [level=5] [ref=e316]
+                - link [ref=e318] [cursor=pointer]:
+                  - /url: /games/cc-tiberium-wars
+                  - 'img "C&C3: Tiberium Wars" [ref=e319]'
+              - generic [ref=e320]:
+                - heading "Game" [level=5] [ref=e321]
+                - 'link "C&C3: Tiberium Wars" [ref=e323] [cursor=pointer]':
+                  - /url: /games/cc-tiberium-wars
+              - generic [ref=e324]:
+                - heading "Creator" [level=5] [ref=e325]
+                - link "bquenin" [ref=e328] [cursor=pointer]:
+                  - /url: /members/bquenin
+              - generic [ref=e329]:
+                - heading "Contact" [level=5] [ref=e330]
+                - link "Send Message" [ref=e332] [cursor=pointer]:
+                  - /url: /messages/compose?to=bquenin
+              - generic [ref=e333]:
+                - heading "Homepage" [level=5] [ref=e334]
+                - link "Github.com" [ref=e336] [cursor=pointer]:
+                  - /url: https://github.com/bquenin/commander
+              - generic [ref=e337]:
+                - heading "Release date" [level=5] [ref=e338]
+                - time [ref=e340]: Released 2016
+              - generic [ref=e341]:
+                - heading "Share" [level=5] [ref=e342]
+                - generic [ref=e343]:
+                  - link "Share on Reddit" [ref=e344] [cursor=pointer]:
+                    - /url: https://www.reddit.com/r/1/submit?url=https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander&title=Commander+AI+mod+for+C%26C3%3A+Tiberium+Wars
+                  - link "Email a friend" [ref=e345] [cursor=pointer]:
+                    - /url: mailto:?subject=Commander%20AI%20mod%20for%20C%26C3%3A%20Tiberium%20Wars&body=Visit%3A%20https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander
+                  - link "Tweeeeeet!" [ref=e346] [cursor=pointer]:
+                    - /url: https://twitter.com/intent/tweet?status=Commander+AI+mod+for+C%26C3%3A+Tiberium+Wars+https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander+via+%40moddb&url=https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander&via=moddb
+                  - link "Share on Facebook" [ref=e347] [cursor=pointer]:
+                    - /url: https://www.facebook.com/dialog/share?app_id=210134345672070&display=page&href=https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander&quote=Commander+AI+mod+for+C%26C3%3A+Tiberium+Wars&redirect_uri=https%3A%2F%2Fwww.moddb.com%2Fmods%2Fcommander
+          - generic [ref=e348]:
+            - generic [ref=e349]: Community Rating
+            - generic [ref=e354]:
+              - generic [ref=e355]:
+                - paragraph [ref=e356]: Average
+                - generic [ref=e357]: "8.5"
+              - paragraph [ref=e361]: 2 votes submitted.
+              - 'generic "Your Rating: -" [ref=e362]':
+                - generic [ref=e363]:
+                  - paragraph [ref=e364]: You Say
+                  - text: "-"
+                - generic [ref=e365]:
+                  - 'generic "Your Rating: -" [ref=e367]':
+                    - link "1" [ref=e369] [cursor=pointer]:
+                      - /url: "#1"
+                    - link "2" [ref=e371] [cursor=pointer]:
+                      - /url: "#2"
+                    - link "3" [ref=e373] [cursor=pointer]:
+                      - /url: "#3"
+                    - link "4" [ref=e375] [cursor=pointer]:
+                      - /url: "#4"
+                    - link "5" [ref=e377] [cursor=pointer]:
+                      - /url: "#5"
+                    - link "6" [ref=e379] [cursor=pointer]:
+                      - /url: "#6"
+                    - link "7" [ref=e381] [cursor=pointer]:
+                      - /url: "#7"
+                    - link "8" [ref=e383] [cursor=pointer]:
+                      - /url: "#8"
+                    - link "9" [ref=e385] [cursor=pointer]:
+                      - /url: "#9"
+                    - link "10" [ref=e387] [cursor=pointer]:
+                      - /url: "#10"
+                  - paragraph [ref=e388]: Ratings closed.
+          - generic [ref=e389]:
+            - generic [ref=e390]: Style
+            - generic [ref=e395]:
+              - generic [ref=e396]:
+                - heading "Genre" [level=5] [ref=e397]
+                - link "Real Time Strategy" [ref=e400] [cursor=pointer]:
+                  - /url: /mods?filter=t&genre=15
+              - generic [ref=e401]:
+                - heading "Theme" [level=5] [ref=e402]
+                - link "Abstract" [ref=e404] [cursor=pointer]:
+                  - /url: /mods?filter=t&theme=18
+              - generic [ref=e405]:
+                - heading "Players" [level=5] [ref=e406]
+                - link "Multiplayer" [ref=e408] [cursor=pointer]:
+                  - /url: /mods?filter=t&players=2
+          - generic [ref=e409]:
+            - generic [ref=e410]: Tags
+            - generic [ref=e416]:
+              - generic [ref=e417]:
+                - paragraph
+                - paragraph [ref=e418]:
+                  - link "Abstract" [ref=e419] [cursor=pointer]:
+                    - /url: /tags/abstract
+                  - generic [ref=e420]:
+                    - link "2 agree" [ref=e421] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e422] [cursor=pointer]:
+                      - /url: "#downvote"
+              - generic [ref=e423]:
+                - paragraph
+                - paragraph [ref=e424]:
+                  - link "CC3 Tiberium Wars" [ref=e425] [cursor=pointer]:
+                    - /url: /tags/cc3-tiberium-wars
+                  - generic [ref=e426]:
+                    - link "2 agree" [ref=e427] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e428] [cursor=pointer]:
+                      - /url: "#downvote"
+              - generic [ref=e429]:
+                - paragraph
+                - paragraph [ref=e430]:
+                  - link "Multiplayer" [ref=e431] [cursor=pointer]:
+                    - /url: /tags/multiplayer
+                  - generic [ref=e432]:
+                    - link "2 agree" [ref=e433] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e434] [cursor=pointer]:
+                      - /url: "#downvote"
+              - generic [ref=e435]:
+                - paragraph
+                - paragraph [ref=e436]:
+                  - link "Real Time" [ref=e437] [cursor=pointer]:
+                    - /url: /tags/real-time
+                  - generic [ref=e438]:
+                    - link "2 agree" [ref=e439] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e440] [cursor=pointer]:
+                      - /url: "#downvote"
+              - generic [ref=e441]:
+                - paragraph
+                - paragraph [ref=e442]:
+                  - link "RTS" [ref=e443] [cursor=pointer]:
+                    - /url: /tags/rts
+                  - generic [ref=e444]:
+                    - link "2 agree" [ref=e445] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e446] [cursor=pointer]:
+                      - /url: "#downvote"
+              - generic [ref=e447]:
+                - paragraph
+                - paragraph [ref=e448]:
+                  - link "Strategy" [ref=e449] [cursor=pointer]:
+                    - /url: /tags/strategy
+                  - generic [ref=e450]:
+                    - link "2 agree" [ref=e451] [cursor=pointer]:
+                      - /url: "#upvote"
+                    - link "0 disagree" [ref=e452] [cursor=pointer]:
+                      - /url: "#downvote"
+          - generic [ref=e453]:
+            - generic [ref=e454]: Statistics
+            - generic [ref=e459]:
+              - generic [ref=e460]:
+                - heading "Rank" [level=5] [ref=e461]
+                - link "16,394 of 67,133" [ref=e463] [cursor=pointer]:
+                  - /url: /mods/top
+              - generic [ref=e464]:
+                - heading "Visits" [level=5] [ref=e465]
+                - link "16,869 (1 today)" [ref=e467] [cursor=pointer]:
+                  - /url: /mods/commander/stats
+              - generic [ref=e468]:
+                - heading "Last Update" [level=5] [ref=e469]
+                - time [ref=e471]: 10 years ago
+              - generic [ref=e472]:
+                - heading "Watchers" [level=5] [ref=e473]
+                - link "5 members" [ref=e475] [cursor=pointer]:
+                  - /url: /mods/commander/watchers
+              - generic [ref=e476]:
+                - heading "Files" [level=5] [ref=e477]
+                - link "1" [ref=e479] [cursor=pointer]:
+                  - /url: /mods/commander/downloads
+              - generic [ref=e480]:
+                - heading "Reviews" [level=5] [ref=e481]
+                - link "1" [ref=e483] [cursor=pointer]:
+                  - /url: /mods/commander/reviews
+    - contentinfo [ref=e487]:
+      - generic [ref=e489]:
+        - link "DBolical - Entertainment Euphoria" [ref=e490] [cursor=pointer]:
+          - /url: https://www.dbolical.com
+        - generic [ref=e491]:
+          - link "Cookies" [ref=e492] [cursor=pointer]:
+            - /url: /privacy-policy#cookies
+          - text: "|"
+          - link "Terms of Use" [ref=e493] [cursor=pointer]:
+            - /url: /terms-of-use
+          - text: "|"
+          - link "Privacy Policy" [ref=e494] [cursor=pointer]:
+            - /url: /privacy-policy
+        - generic [ref=e495]:
+          - link "Blog" [ref=e496] [cursor=pointer]:
+            - /url: /blog
+          - text: "|"
+          - link "About" [ref=e497] [cursor=pointer]:
+            - /url: /about
+          - text: "|"
+          - link "Advertise" [ref=e498] [cursor=pointer]:
+            - /url: /advertise
+          - text: "|"
+          - link "Contact" [ref=e499] [cursor=pointer]:
+            - /url: /contact
+          - text: "|"
+          - link "Submit Mod" [ref=e500] [cursor=pointer]:
+            - /url: /mods/add
+          - text: "|"
+          - link "Cross-Platform Mod Support" [ref=e501] [cursor=pointer]:
+            - /url: https://mod.io
+          - text: "|"
+          - link "Site Map" [ref=e502] [cursor=pointer]:
+            - /url: /sitemap
+        - generic [ref=e503]:
+          - text: © 2002 - 2026
+          - link "DBolical Pty Ltd." [ref=e504] [cursor=pointer]:
+            - /url: https://www.dbolical.com
+          - text: All Rights Reserved.
+          - link "6607 modders" [ref=e505] [cursor=pointer]:
+            - /url: /members/online
+          - text: .
+  - textbox [ref=e506]
+  - iframe
+  - dialog "Cookie consent dialog" [ref=e514]:
+    - generic [ref=e515]:
+      - button "Close" [ref=e518] [cursor=pointer]: ×
+      - generic [ref=e519]:
+        - generic [ref=e520]:
+          - generic [ref=e521]:
+            - generic [ref=e522]: We use cookies to deliver, maintain, enhance and protect our services. We may also use cookies to personalise our content and ads. You may accept or reject these additional cookies by adjusting the checkboxes below or clicking the ‘Cookies’ link at any time at the bottom of the page. By using our website you consent to all cookies in accordance with our Cookie Policy.
+            - link "Read more" [ref=e523] [cursor=pointer]:
+              - /url: /privacy-policy
+          - button "Manage settings" [ref=e524]
+        - generic [ref=e530]:
+          - button "Accept all cookies" [ref=e531] [cursor=pointer]
+          - button "Decline all" [ref=e532] [cursor=pointer]

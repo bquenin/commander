@@ -12,7 +12,7 @@ same mod installed.
 ## Status
 
 Pipeline proof: the mod builds and installs, and adds one GDI personality,
-*Kane Commander*, to the skirmish AI dropdown. It is currently a copy of the
+*Commander*, to the skirmish AI dropdown. It is currently a copy of the
 stock `1GDIOptimal` personality with a new id — the AI design work has not
 started yet.
 
@@ -25,23 +25,23 @@ Framework 4.x (stock on Windows 10/11).
 ```powershell
 git clone https://github.com/bquenin/commander.git
 cd commander
-.\BuildModKW.ps1                       # defaults to -ModName KaneCommander -ModVersion 1.0
+.\BuildModKW.ps1                       # defaults to -ModName Commander -ModVersion 1.0
 .\BuildModKW.ps1 -GamePath "D:\Games\Command and Conquer 3 - Kane's Wrath"
 ```
 
 The script builds and installs to
-`Documents\Command & Conquer 3 Kane's Wrath\Mods\KaneCommander\`. Start the game,
+`Documents\Command & Conquer 3 Kane's Wrath\Mods\Commander\`. Start the game,
 pick the mod in the launcher's mod list, then in a skirmish set an opponent's AI
-to *Kane Commander*.
+to *Commander*.
 
 ## Layout
 
 ```
-Mods/KaneCommander/
+Mods/Commander/
     Data/Static.xml                                        stream root
-    Data/SkirmishAI/Personalities/GDIKaneCommander.xml     the personality
-    Misc/Data/mod.str                                      "Kane Commander" UI string
-Mods/KaneCommander_1.0.skudef                              reference copy of the skudef
+    Data/SkirmishAI/Personalities/GDICommander.xml     the personality
+    Misc/Data/mod.str                                      "Commander" UI string
+Mods/Commander_1.0.skudef                              reference copy of the skudef
 BuildModKW.ps1                                             build + install
 Tools/WrathEd/                                             vendored compiler (GPL v3)
 Tools/MakeBig.exe                                          EA .big packer

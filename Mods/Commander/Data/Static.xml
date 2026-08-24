@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Static stream root for the KaneCommander mod.
+	Static stream root for the Commander mod.
 
 	Kane's Wrath has no separate "mod" asset stream (unlike Tiberium Wars 1.9).
 	A mod is compiled as a PATCH on top of the game's own static stream:
@@ -15,6 +15,6 @@
 -->
 <AssetDeclaration xmlns="uri:ea.com:eala:asset">
 	<Includes>
-		<Include type="all" source="SkirmishAI/Personalities/GDIKaneCommander.xml" />
+		<Include type="all" source="SkirmishAI/Personalities/GDICommander.xml" />
 	</Includes>
 </AssetDeclaration>

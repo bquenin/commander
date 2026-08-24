@@ -3,9 +3,9 @@
   <Tags></Tags>
   <Includes></Includes>
   <AIPersonalityDefinition
-		id="GDIKaneCommander"
-		PersonalityType="GDIKaneCommander"
-    PersonalityUIName="Personality:KaneCommander"
+		id="GDICommander"
+		PersonalityType="GDICommander"
+    PersonalityUIName="Personality:Commander"
     SkirmishPersonality="true" 
 		SecondsTillTargetsCanExpire="15.0"
 		ChanceForTargetToExpire="100"
