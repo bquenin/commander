@@ -60,7 +60,7 @@ Tools/MakeBig.exe                                          EA .big packer
 Build orders come straight out of replay files — no need to play them back:
 
 ```powershell
-py tools\mine_openers.py <folder-with-.kwreplay-files> --faction GDI --minutes 6 --md docs\mined-openers-gdi.md
+py Tools\mine_openers.py <folder-with-.kwreplay-files> --faction GDI --minutes 6 --md docs\mined-openers-gdi.md
 ```
 
 Replays are not stored in this repo; download packs from GameReplays.org or
