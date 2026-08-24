@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
-<!-- *********************************************************************** -->
-<!-- * Implements the shell UI message interface for ActionScript		   * -->
-<!-- *********************************************************************** -->
-
-<UIComponentMessage xmlns="uri:ea.com:eala:asset" 
-	Priority="500">
-</UIComponentMessage>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="us-ascii"?>
-
-	<CreateObjectDie xmlns="uri:ea.com:eala:asset"
-		id="ModuleTag_CreateOccupiedSuicide"
-		CreationList="OCL_GenericAlienBuildingSuicide" >
-		<DieMuxData DeathTypes="SUICIDED" />
-	</CreateObjectDie>
-

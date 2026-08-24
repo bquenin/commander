@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Static stream root for the KaneCommander mod.
+
+	Kane's Wrath has no separate "mod" asset stream (unlike Tiberium Wars 1.9).
+	A mod is compiled as a PATCH on top of the game's own static stream:
+	WrathEd is given the shipped static_common_2.manifest as the base patch
+	stream, and emits Static_mod.manifest plus a Static.version file holding
+	"_mod".  When the mod .big is added to the search path, its Static.version
+	shadows the game's, so the engine loads Static_mod.manifest instead.
+
+	Everything the personality below refers to (AI states, opening moves,
+	targeting heuristics, army definitions) already exists in the base stream,
+	so nothing else needs to be declared here.
+-->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Includes>
+		<Include type="all" source="SkirmishAI/Personalities/GDIKaneCommander.xml" />
+	</Includes>
+</AssetDeclaration>

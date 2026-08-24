@@ -1,0 +1,8 @@
+# Build output
+BuiltModsKW/
+*.big
+
+# Scratch / logs
+scratch/
+*.log
+stringhashes.xml

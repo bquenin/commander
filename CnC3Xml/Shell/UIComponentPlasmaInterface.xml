@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
-<!-- *********************************************************************** -->
-<!-- * Implements any general game info functionality for actionscript	   * -->
-<!-- *********************************************************************** -->
-
-<UIComponentPlasmaInterface xmlns="uri:ea.com:eala:asset" 
-	Priority="500">
-</UIComponentPlasmaInterface>
