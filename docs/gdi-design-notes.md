@@ -42,7 +42,7 @@ remarkably uniform:
 |---|---|---|
 | Power Plant | 0:08 | 386/390 |
 | Barracks | 0:15 | 366 |
-| Watchtower (then a 2nd at 0:28; both usually **sold** — 2–4 sells per game before 2:00) | 0:17 | 384 |
+| Watchtower — **sell-trick, not a defence**: 95% of early Watchtowers are sold within 8 s of placement (median 0.6 s, i.e. still under construction) to eject free infantry; a 2nd at 0:28, 2–4 sells per game before 2:00 | 0:17 | 384 |
 | Refinery | 0:46 | 390 |
 | War Factory | 1:09 | 375 |
 | 2nd Refinery | 1:46 | 353 |
@@ -156,10 +156,13 @@ Ordered by expected impact:
    War Factory (1:09) → Refinery (1:46) → PP (2:07) → Refinery (3:27), with
    Engineers + Riflemen first, then Harvesters (target 5–6 by 2:00) and
    Pitbulls (3 by 2:00), Predators from 3:00; Power Plant upgrade and AP Ammo
-   at ~4:00, Command Post + Airfield at ~3:50. The Watchtower sell-trick is
-   not reproducible, so the tower stays as a real chokepoint defence. Use a
-   `PRODUCTION` earmark timed to the War Factory. Compare against
-   `GDIStandard` head-to-head.
+   at ~4:00, Command Post + Airfield at ~3:50. **Leave the early Watchtowers
+   out**: in the corpus they are sell-trick pumps sold the moment they are
+   placed, which a data-mod AI cannot do, so copying them would cost 600
+   credits at 0:17 for nothing. Put the saved money into an earlier Refinery
+   or an extra Harvester, and let a real Watchtower come from the `DEFENSE`
+   budget once the economy is up. Use a `PRODUCTION` earmark timed to the
+   War Factory. Compare against `GDIStandard` head-to-head.
 2. **Economy knobs** — `EconomyBuilderMinFarmsOwned` is already 1 for GDI;
    raise the harvester cap gate (`HarvesterCapHeuristic MaxHarvesters`) in an
    investment budget so it keeps building harvesters past stock's 5–6;
