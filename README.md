@@ -48,9 +48,24 @@ Mods/Commander/
     Strings/english.str                                    the mod's UI strings
 BuildModKW.ps1                                             build + install
 UninstallModKW.ps1                                         remove the mod from the game
+tools/mine_openers.py                                      extract build orders from .KWReplay files
+docs/                                                      modding notes, stock-AI reference, design notes, mined openers
 Tools/WrathEd/                                             vendored compiler (GPL v3)
+Tools/KWReplayAutoSaver/                                   vendored replay parser (MIT)
 Tools/MakeBig.exe                                          EA .big packer
 ```
+
+## Mining replays
+
+Build orders come straight out of replay files — no need to play them back:
+
+```powershell
+py tools\mine_openers.py <folder-with-.kwreplay-files> --faction GDI --minutes 6 --md docs\mined-openers-gdi.md
+```
+
+Replays are not stored in this repo; download packs from GameReplays.org or
+kaneswrath.com. `docs/mined-openers-gdi.md` is the current output for GDI
+(390 1v1 player-games).
 
 ## How a Kane's Wrath mod is built and loaded
 

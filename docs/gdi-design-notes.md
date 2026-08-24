@@ -30,11 +30,46 @@ by 2× income and is not a reference for anything.
   Squad + Engineer from a sold Conyard-class structure. Pros cycle cheap
   structures (Barracks, Watchtowers) through this deliberately.
 
-### Openers
+### Openers — mined from 390 GDI 1v1 games
 
-Stock `GDIStandard` is `PowerPlant → Barracks → 2 Riflemen → 2 Refinery →
-WarFactory → 2 Refinery`. Observed pro GDI play (1.02, large 1v1 map) runs
-tighter and more aggressive:
+`tools/mine_openers.py` parsed the command streams of ~1,100 public
+GameReplays 1.02 ladder replays (Tournament Rift / Decision / Dustbowl
+mostly, top players including the #1 ranked GDI player with 114 games).
+Full report: [`mined-openers-gdi.md`](mined-openers-gdi.md). The picture is
+remarkably uniform:
+
+| Step | Median time | Games |
+|---|---|---|
+| Power Plant | 0:08 | 386/390 |
+| Barracks | 0:15 | 366 |
+| Watchtower (then a 2nd at 0:28; both usually **sold** — 2–4 sells per game before 2:00) | 0:17 | 384 |
+| Refinery | 0:46 | 390 |
+| War Factory | 1:09 | 375 |
+| 2nd Refinery | 1:46 | 353 |
+| 2nd Power Plant | 2:07 | 356 |
+| 3rd Refinery | 3:27 | 276 |
+| Airfield | 3:50 | 189 |
+| Command Post | 3:52 | 308 |
+| 2nd War Factory | 4:00 | 147 |
+| Tech Center | 5:17 | 100 |
+
+Units by 2:00 (average per game): **4.6 Harvesters, 2.9 Pitbulls, 1.6
+Engineers**, 0.8 Predators, 0.7 Orcas. The top player runs the same order
+but harder on economy: 6.6 Harvesters and 3.7 Pitbulls by 2:00, Airfield at
+2:58. First-minute production is Engineers (1–2, for Tiberium Spike
+captures) and Riflemen; minute two is Harvesters + Pitbulls; Predators arrive
+in minute three; APCs and Missile Squads dominate minutes four to six.
+
+Upgrades by 6:00: **Power Plant upgrade** in 278/390 games (median 4:02) —
+the meta's answer to the power problem instead of a third plant — and **AP
+Ammo** in 206 games (median 4:23). Surveyor/Outpost expansion within six
+minutes is rare on ladder maps (1%); MCVs are queued in 43 games.
+
+Stock `GDIStandard` (`PowerPlant → Barracks → 2 Riflemen → 2 Refinery →
+WarFactory → 2 Refinery`) is close in shape but has no Watchtower, no
+Pitbulls, no harvester mass, and no upgrades. A single large-map pro game
+(GDI vs Nod, Abandoned Subway) shows the same opener extended into an
+expansion-heavy mid game:
 
 ```
 0:00  Power Plant → Barracks (→ 2nd Barracks, sold once Engineers are out)
@@ -116,10 +151,15 @@ go for harvesters and power rather than the nearest building.
 
 Ordered by expected impact:
 
-1. **Opening move** — encode the pro opener above as `GDICommanderOpening`
-   (PP → Barracks → Watchtower → Refinery → Refinery → WF → PP → Refinery,
-   Harvesters, then Surveyor), with a `PRODUCTION` earmark timed to the WF
-   completion. Compare against `GDIStandard` head-to-head.
+1. **Opening move** — encode the mined ladder opener as
+   `GDICommanderOpening`: PP → Barracks → Watchtower → Refinery (0:46) →
+   War Factory (1:09) → Refinery (1:46) → PP (2:07) → Refinery (3:27), with
+   Engineers + Riflemen first, then Harvesters (target 5–6 by 2:00) and
+   Pitbulls (3 by 2:00), Predators from 3:00; Power Plant upgrade and AP Ammo
+   at ~4:00, Command Post + Airfield at ~3:50. The Watchtower sell-trick is
+   not reproducible, so the tower stays as a real chokepoint defence. Use a
+   `PRODUCTION` earmark timed to the War Factory. Compare against
+   `GDIStandard` head-to-head.
 2. **Economy knobs** — `EconomyBuilderMinFarmsOwned` is already 1 for GDI;
    raise the harvester cap gate (`HarvesterCapHeuristic MaxHarvesters`) in an
    investment budget so it keeps building harvesters past stock's 5–6;

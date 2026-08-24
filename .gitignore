@@ -7,3 +7,6 @@ scratch/
 *.log
 stringhashes.xml
 .playwright-mcp/
+replays/
+*.kwreplay
+*.KWReplay
