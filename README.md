@@ -11,10 +11,12 @@ same mod installed.
 
 ## Status
 
-Pipeline proof: the mod builds, installs and shows up in the game — the skirmish
-AI Personality dropdown gets a *Commander* entry. It is currently a copy of the
-stock `1GDIOptimal` personality with a new id; the AI design work has not
-started yet.
+The mod builds, installs and shows up in the game — the skirmish AI
+Personality dropdown gets a *Commander* entry. The GDI personality is the
+stock `1GDIOptimal` with the Brutal income cheat removed and its own opening
+move, `GDICommanderOpening`, derived from 390 mined ladder games (see
+[`docs/gdi-design-notes.md`](docs/gdi-design-notes.md)). States, budgets and
+unit preferences are still stock; that is the next design step.
 
 ## Build & install
 
@@ -43,6 +45,7 @@ back.
 ```
 Mods/Commander/
     Data/Static.xml                                        stream root
+    Data/SkirmishAI/OpeningMoves/GDICommanderOpeningMoves.xml  the GDI opening move (mined from ladder replays)
     Data/SkirmishAI/Personalities/GDICommander.xml         the GDI personality
     Data/SkirmishAI/Personalities/RandomCommander.xml      side-agnostic entry mapping each faction to a personality
     Strings/english.str                                    the mod's UI strings

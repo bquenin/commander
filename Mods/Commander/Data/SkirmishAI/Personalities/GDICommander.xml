@@ -69,7 +69,6 @@
       Difficulty="MEDIUM"
       />
 
-    <ResourceMultiplierCheat Percentage="200%" Difficulty="BRUTAL"/>
 
     <TacticalTarget TacticalAITarget="FocusedTarget" MaxTeamsPerTarget="1"/>
     <TacticalTarget TacticalAITarget="SpreadTarget" MaxTeamsPerTarget="1"/>
@@ -109,14 +108,9 @@
     <TacticalTarget TacticalAITarget="Husk" MaxTeamsPerTarget="1"/>
     <TacticalTarget TacticalAITarget="Husk" MaxTeamsPerTarget="1"/>
 
-    <OpeningMove Name="GDI_EASY" Weight="100%" Difficulty="EASY"/>
+    <OpeningMove Name="GDICommanderOpening" Weight="100%" Difficulty="EASY MEDIUM HARD BRUTAL"/>
 
-    <OpeningMove Name="GDIStandard" Weight="32%" Difficulty="MEDIUM HARD"/>
-    <OpeningMove Name="GDIStandard2" Weight="32%" Difficulty="MEDIUM HARD"/>
-    <OpeningMove Name="GDIStandardCrane" Weight="31%" Difficulty="MEDIUM HARD"/>
-    <OpeningMove Name="GDIMegaUnitRush" Weight="5%" Difficulty="MEDIUM HARD"/>
 
-    <OpeningMove Name="GDIBrutalCrane" Weight="100%" Difficulty="BRUTAL"/>
 
     <States State="GDIOptimalDirectAttack1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
     <States State="GDIOptimalDirectAttack2" Difficulty="EASY MEDIUM HARD BRUTAL"/>    

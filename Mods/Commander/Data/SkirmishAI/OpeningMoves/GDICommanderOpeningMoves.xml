@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Commander GDI opening move.
+
+	Derived from 390 GDI 1v1 ladder games (docs/mined-openers-gdi.md), median
+	timings: Power Plant 0:08, Barracks 0:15, Refinery 0:46, War Factory 1:09,
+	2nd Refinery 1:46, 2nd Power Plant 2:07, 3rd Refinery 3:27; by 2:00 about
+	4.6 Harvesters and 2.9 Pitbulls queued, Predators from 3:00.
+
+	Deliberately absent: the 0:17 Watchtower. In the corpus it is placed and
+	sold within a second (sell-trick for free infantry), which this AI cannot
+	do; the credits go into the economy instead. Command Post, Airfield and the
+	Power Plant / AP Ammo upgrades (~3:50-4:20 in the corpus) are left to the
+	tech budget states, which the opening move cannot express.
+
+	Orders are queued in sequence; an Order with only Time/Account/Deposit
+	earmarks the AI's own credits into that account at that game time (it is
+	not extra income). The last Time order marks the end of the opening move.
+-->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Tags></Tags>
+	<Includes></Includes>
+
+	<SkirmishOpeningMove id="GDICommanderOpening" Side="GDI">
+		<!-- 0:00-0:45 : power, barracks, two Rifleman squads for scouting and early cover -->
+		<Order Build="GDIPowerPlant"/>
+		<Order Build="GDIBarracks"/>
+		<Order Build="GDIRifleSoldierSquad"/>
+		<Order Build="GDIRifleSoldierSquad"/>
+		<!-- 0:46 : first Refinery, then straight into the War Factory -->
+		<Order Build="GDIRefinery"/>
+		<Order Build="GDIWarFactory"/>
+		<!-- ~1:10 : the factory is up - route money into production for harvesters and Pitbulls -->
+		<Order Time="70s" Account="PRODUCTION" Deposit="3000"/>
+		<Order Build="GDIHarvester"/>
+		<Order Build="GDIPitbull"/>
+		<Order Build="GDIHarvester"/>
+		<Order Build="GDIPitbull"/>
+		<!-- 1:46 / 2:07 : second Refinery, second Power Plant -->
+		<Order Build="GDIRefinery"/>
+		<Order Build="GDIPowerPlant"/>
+		<Order Build="GDIHarvester"/>
+		<Order Build="GDIPitbull"/>
+		<!-- from 3:00 : first tanks, third Refinery -->
+		<Order Build="GDIPredator"/>
+		<Order Build="GDIPredator"/>
+		<Order Build="GDIRefinery"/>
+		<Order Time="150s"/>
+	</SkirmishOpeningMove>
+</AssetDeclaration>

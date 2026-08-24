@@ -15,6 +15,7 @@
 -->
 <AssetDeclaration xmlns="uri:ea.com:eala:asset">
 	<Includes>
+		<Include type="all" source="SkirmishAI/OpeningMoves/GDICommanderOpeningMoves.xml" />
 		<Include type="all" source="SkirmishAI/Personalities/GDICommander.xml" />
 		<Include type="all" source="SkirmishAI/Personalities/RandomCommander.xml" />
 	</Includes>
