@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	The skirmish lobby's "AI Personality" dropdown lists only side-agnostic
+	personalities (Side = Null) that map each faction to a concrete
+	personality, exactly like the stock 1RandomOptimal ("Balanced") ...
+	5RandomOverlord ("Steamroller") wrappers.  A faction-specific personality
+	on its own never appears in the list.
+
+	Factions without a Commander personality yet fall back to their stock
+	Optimal ("Balanced") personality.
+-->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Tags></Tags>
+	<Includes></Includes>
+	<AIPersonalityDefinition
+		id="6RandomCommander"
+		PersonalityType="6RandomCommander"
+		PersonalityUIName="Personality:Commander"
+		SkirmishPersonality="true">
+		<Side>Null</Side>
+		<PersonalityMap Side="GDI"          Personality="GDICommander"/>
+		<PersonalityMap Side="NOD"          Personality="1NODOptimal"/>
+		<PersonalityMap Side="Alien"        Personality="1AlienOptimal"/>
+		<PersonalityMap Side="SteelTalons"  Personality="1SteelTalonsOptimal"/>
+		<PersonalityMap Side="BlackHand"    Personality="1BlackHandOptimal"/>
+		<PersonalityMap Side="Reaper17"     Personality="1Reaper17Optimal"/>
+		<PersonalityMap Side="ZOCOM"        Personality="1ZOCOMOptimal"/>
+		<PersonalityMap Side="MarkedOfKane" Personality="1MarkedOfKaneOptimal"/>
+		<PersonalityMap Side="Traveler59"   Personality="1Traveler59Optimal"/>
+	</AIPersonalityDefinition>
+</AssetDeclaration>

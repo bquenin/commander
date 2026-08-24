@@ -16,9 +16,12 @@
       3. Those files are packed into <Mod>_<Version>_Streams.big.  When the .big is
          on the search path its Data\Static.version shadows the game's, so the engine
          loads Data\Static_mod.manifest -- which chains back to static_common_2.
-      4. Mods\<Mod>\Misc\** is packed into <Mod>_<Version>_Misc.big (string tables etc).
-      5. Both .big files and the .skudef are copied to
-         Documents\<UserDataLeafName>\Mods\<Mod>\.
+      4. The game's cnc3.csf is converted to cnc3.str, the mod's strings from
+         Mods\<Mod>\Strings\<language>.str are appended, and the result is packed
+         into <Mod>_<Version>_<language>.big (KW does not load a mod.str).
+      5. The .big files are copied to Documents\<UserDataLeafName>\Mods\<Mod>\ and a
+         CNC3EP1_<language>_1.3.SkuDef is written into the game folder that adds
+         them and chains the stock 1.2 SkuDef (the Steam build ignores -modConfig).
 
     EA's Tiberium Wars BinaryAssetBuilder.exe cannot be used for
     Kane's Wrath: it stamps Tiberium Wars asset type-version hashes into the manifest
@@ -41,7 +44,8 @@
 param(
     [string]$ModName    = 'Commander',
     [string]$ModVersion = '1.0',
-    [string]$GamePath
+    [string]$GamePath,
+    [string]$Language   = 'english'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -186,21 +190,22 @@ public static class SageBig
 }
 '@
 
-# ------------------------------------------- extract the game's base manifest
-if (-not (Test-Path $baseMan)) {
-    $patchBig = Join-Path $GamePath 'Core\1.2\patch2.big'
-    $entry    = 'data\static_common_2.manifest'
+# ------------------------------------------ extract the game's base manifests
+# static_common_2 = normal LOD base, static_l_common_2 = low LOD base.
+$baseManL = Join-Path $buildRoot 'GameFiles\Manifest\static_l_common_2.manifest'
+$patchBig = Join-Path $GamePath 'Core\1.2\patch2.big'
+foreach ($pair in @(@('data\static_common_2.manifest', $baseMan), @('data\static_l_common_2.manifest', $baseManL))) {
+    $entry = $pair[0]; $dest = $pair[1]
+    if (Test-Path $dest) { Write-Host "Base stream : $dest (cached)"; continue }
     if (-not (Test-Path $patchBig)) {
         Fail "Not found: $patchBig  (Kane's Wrath 1.02 / patch2 is required)"
     }
     Write-Host "Extracting  : $entry"
-    New-Item -ItemType Directory -Force (Split-Path $baseMan) | Out-Null
+    New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
     $raw = [SageBig]::Extract($patchBig, $entry)
     if ([SageBig]::IsRefPack($raw)) { $raw = [SageBig]::Decompress($raw) }
-    [IO.File]::WriteAllBytes($baseMan, $raw)
+    [IO.File]::WriteAllBytes($dest, $raw)
     Write-Host "              -> $($raw.Length) bytes"
-} else {
-    Write-Host "Base stream : $baseMan (cached)"
 }
 
 # ------------------------------------------------------------------- compile
@@ -213,31 +218,44 @@ Write-Host "Compiling   : Mods\$ModName\Data\Static.xml"
 # WrathEd.exe is a WPF (GUI subsystem) executable, so the shell does not block on
 # it -- Start-Process -Wait is required, otherwise the outputs are checked too early.
 # It briefly shows a compile-progress window and closes itself when finished.
+# Stream naming follows the community-proven WrathEd recipe (KWBandage's
+# BuildPatch.bat): the mod stream is "static_common_mod" patched on top of
+# "static_common_2", plus a separate low-LOD compile "static_l_common_mod" on top
+# of "static_l_common_2", and the .version files are written by hand.
 $q = '"'
-$argLine = @(
+$common = @(
     "$q-gameDefinition:Kane's Wrath$q"
     "$q-compile:$modSrc\Data\Static.xml$q"
     "$q-art:..\Art$q"
     "$q-audio:..\Audio$q"
     "$q-out:$outData$q"
-    "$q-version:_mod$q"
-    "$q-bps:static_common_2.manifest,$baseMan$q"
-    "$q-lowlod:static_mod.manifest$q"
-) -join ' '
-# -WorkingDirectory keeps WrathEd's stringhashes.xml by-product out of the repo root.
-Start-Process -FilePath $wrathEd -ArgumentList $argLine -WorkingDirectory $buildRoot `
-              -Wait -NoNewWindow | Out-Null
-
-if (-not (Test-Path (Join-Path $outData 'Static_mod.manifest'))) {
-    Fail "WrathEd did not produce Static_mod.manifest. See Documents\WrathEd\Logs\ for details."
+)
+$passes = @(
+    @{ Name = 'static_common_mod';   Args = $common + @("$q-version:_common_mod$q",   "$q-bps:static_common_2.manifest,$baseMan$q") },
+    @{ Name = 'static_l_common_mod'; Args = $common + @("$q-postfix:L$q", "$q-version:_l_common_mod$q", "$q-bcn:LowLOD$q", "$q-bps:static_l_common_2.manifest,$baseManL$q") }
+)
+foreach ($p in $passes) {
+    # WrathEd.exe is a WPF (GUI subsystem) executable, so the shell does not block on
+    # it -- Start-Process -Wait is required. -WorkingDirectory keeps its
+    # stringhashes.xml by-product out of the repo root.
+    Start-Process -FilePath $wrathEd -ArgumentList ($p.Args -join ' ') -WorkingDirectory $buildRoot `
+                  -Wait -NoNewWindow | Out-Null
+    if (-not (Test-Path (Join-Path $outData "$($p.Name).manifest"))) {
+        Fail "WrathEd did not produce $($p.Name).manifest. See Documents\WrathEd\Logs\ for details."
+    }
 }
+# The engine reads data\static.version to pick which static_<version>.manifest to
+# load; ours must name the mod stream so it shadows the game's "_common_2".
+[IO.File]::WriteAllText((Join-Path $outData 'Static.version'),   "_common_mod`r`n",   [Text.Encoding]::ASCII)
+# (the suffix is appended to "static" / "static_l" respectively)
+[IO.File]::WriteAllText((Join-Path $outData 'Static_l.version'), "_common_mod`r`n",   [Text.Encoding]::ASCII)
 
 # The stringhashes stream is a build by-product; shipping it would replace the
 # game's own data\stringhashes.* .  The official SDK does not pack it either.
 Get-ChildItem $outData -Filter 'stringhashes.*' -ErrorAction SilentlyContinue | Remove-Item -Force
 
 # ---------------------------------------------------------------- verify hash
-$man  = [IO.File]::ReadAllBytes((Join-Path $outData 'Static_mod.manifest'))
+$man  = [IO.File]::ReadAllBytes((Join-Path $outData 'static_common_mod.manifest'))
 $all  = [BitConverter]::ToUInt32($man, 8)
 if ($all -ne 0x12B3E763) {
     Fail ("AllTypesHash is 0x{0:X8}, expected 0x12B3E763 (Kane's Wrath 1.02). Wrong compiler/game definition." -f $all)
@@ -260,28 +278,82 @@ if (Test-Path $miscSrc) {
     & $makeBig -f $miscSrc "-o:$miscBig" | Out-Null
 }
 
-# ------------------------------------------------------------------- install
-New-Item -ItemType Directory -Force $installDir | Out-Null
-Copy-Item $streamsBig $installDir -Force
-if (Test-Path $miscBig) { Copy-Item $miscBig $installDir -Force }
-$skudefOut = Join-Path $installDir "${ModName}_${ModVersion}.skudef"
+# ------------------------------------------------------------------- strings
+# Kane's Wrath does not load a mod.str. UI strings come from cnc3.csf (or a
+# cnc3.str that shadows it) in the language .big, and a .str replaces the whole
+# table. So: convert the game's own cnc3.csf to .str, append the mod's strings
+# from Mods\<Mod>\Strings\<language>.str, and pack the result as data\cnc3.str.
+$langBig = Join-Path $buildRoot "${ModName}_${ModVersion}_${Language}.big"
+$stringsSrc = Join-Path $modSrc "Strings\$Language.str"
+if (Test-Path $stringsSrc) {
+    $langPatch = Join-Path $GamePath "Lang-$Language\1.2\patch2.big"
+    if (-not (Test-Path $langPatch)) { Fail "Not found: $langPatch" }
+    Write-Host "Strings     : cnc3.csf ($Language) + Mods\$ModName\Strings\$Language.str"
+    $csf = [SageBig]::Extract($langPatch, 'cnc3.csf')
+    if ([SageBig]::IsRefPack($csf)) { $csf = [SageBig]::Decompress($csf) }
 
-# skudef: use the checked-in one if present, otherwise generate one add-big line
-# per .big that was actually produced. KW skudefs hold add-big lines only - there
-# is no "mod-game" directive (that is a Tiberium Wars 1.9 thing).
-$skudefSrc = Join-Path $root "Mods\${ModName}_${ModVersion}.skudef"
-if (Test-Path $skudefSrc) {
-    Copy-Item $skudefSrc $skudefOut -Force
-} else {
-    $lines = @()
-    if (Test-Path $streamsBig) { $lines += "add-big ${ModName}_${ModVersion}_Streams.big" }
-    if (Test-Path $miscBig)    { $lines += "add-big ${ModName}_${ModVersion}_Misc.big" }
-    Set-Content -Path $skudefOut -Value $lines -Encoding ascii
+    # CSF: 24-byte header, then per label: ' LBL', count, len, name, then
+    # ' RTS'/'WRTS', len, UTF-16 text XOR 0xFF (+ extra ASCII for WRTS).
+    $sb = New-Object Text.StringBuilder
+    [void]$sb.AppendLine("// Generated by BuildModKW.ps1 from the game's cnc3.csf; do not edit.")
+    $count = [BitConverter]::ToInt32($csf, 8); $p = 24
+    for ($i = 0; $i -lt $count; $i++) {
+        $p += 4
+        $n   = [BitConverter]::ToInt32($csf, $p); $p += 4
+        $len = [BitConverter]::ToInt32($csf, $p); $p += 4
+        $label = [Text.Encoding]::ASCII.GetString($csf, $p, $len); $p += $len
+        $value = ''
+        for ($j = 0; $j -lt $n; $j++) {
+            $tag = [Text.Encoding]::ASCII.GetString($csf, $p, 4); $p += 4
+            $sl  = [BitConverter]::ToInt32($csf, $p); $p += 4
+            $bytes = New-Object byte[] ($sl * 2)
+            [Array]::Copy($csf, $p, $bytes, 0, $sl * 2); $p += $sl * 2
+            for ($k = 0; $k -lt $bytes.Length; $k++) { $bytes[$k] = $bytes[$k] -bxor 0xFF }
+            $value = [Text.Encoding]::Unicode.GetString($bytes)
+            if ($tag -eq 'WRTS') { $el = [BitConverter]::ToInt32($csf, $p); $p += 4 + $el }
+        }
+        $value = $value.Replace('\', '\\').Replace('"', '\"').Replace("`r`n", '\n').Replace("`n", '\n')
+        [void]$sb.AppendLine($label)
+        [void]$sb.AppendLine("`"$value`"")
+        [void]$sb.AppendLine('END')
+        [void]$sb.AppendLine()
+    }
+    [void]$sb.AppendLine("// ---- $ModName strings ----")
+    [void]$sb.Append(((Get-Content $stringsSrc -Raw) -replace "`r?`n", "`r`n"))
+    [void]$sb.AppendLine()
+
+    $langDir = Join-Path $buildRoot "Lang\$ModName\data"
+    New-Item -ItemType Directory -Force $langDir | Out-Null
+    [IO.File]::WriteAllText((Join-Path $langDir 'cnc3.str'), $sb.ToString(), (New-Object Text.UTF8Encoding($false)))
+    Write-Host "Packing     : $langBig"
+    Remove-Item $langBig -Force -ErrorAction SilentlyContinue
+    & $makeBig -f (Join-Path $buildRoot "Lang\$ModName") "-o:$langBig" | Out-Null
+    if (-not (Test-Path $langBig)) { Fail "MakeBig did not produce $langBig" }
 }
+
+# ------------------------------------------------------------------- install
+# The Steam build's CNC3EP1.exe ignores -modConfig (verified against a known-good
+# community mod). What does work: it launches the highest CNC3EP1_<lang>_<ver>.SkuDef
+# in the game folder, so we add a 1.3 one that lists the mod's .big files first
+# and then chains the stock 1.2 SkuDef. Remove it (UninstallModKW.ps1) to get
+# the unmodified game back.
+New-Item -ItemType Directory -Force $installDir | Out-Null
+$bigs = @()
+foreach ($b in @($langBig, $streamsBig, $miscBig)) {
+    if (Test-Path $b) { Copy-Item $b $installDir -Force; $bigs += (Join-Path $installDir (Split-Path $b -Leaf)) }
+}
+$gameSku = Join-Path $GamePath "CNC3EP1_${Language}_1.3.SkuDef"
+$stockSku = "CNC3EP1_${Language}_1.2.SkuDef"
+if (-not (Test-Path (Join-Path $GamePath $stockSku))) { Fail "Stock skudef not found: $stockSku (is the game language '$Language'?)" }
+$text = "set-exe RetailExe\1.2\cnc3ep1.dat`r`n"
+foreach ($b in $bigs) { $text += "add-big $b`r`n" }
+$text += "add-config $stockSku`r`n"
+[IO.File]::WriteAllText($gameSku, $text, [Text.Encoding]::ASCII)
 
 Write-Host ''
 Write-Host 'Done.' -ForegroundColor Green
 Get-ChildItem $installDir | ForEach-Object { '  {0,12:N0}  {1}' -f $_.Length, $_.Name }
+Write-Host "  loader   : $gameSku"
 Write-Host ''
-Write-Host 'Launch the game, pick the mod in the launcher''s mod list, then'
-Write-Host 'Skirmish -> set an opponent''s AI personality to "Commander".'
+Write-Host 'Start the game normally; in a skirmish set an opponent''s AI personality to "Commander".'
+Write-Host 'Run .\UninstallModKW.ps1 to remove the mod again.'
